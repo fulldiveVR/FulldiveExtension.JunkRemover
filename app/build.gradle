@@ -1,13 +1,11 @@
-/*
- * Copyright 2020 Hunter J Drum
- */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "theredspy15.ltecleanerfoss"
+        applicationId "com.fulldive.fulldivecleaner"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 38
@@ -55,4 +53,9 @@ dependencies {
 
     //Preference
     implementation 'androidx.preference:preference:1.1.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

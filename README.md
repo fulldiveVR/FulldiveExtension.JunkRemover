@@ -6,7 +6,7 @@
 # The last Android cleaner you will ever need!
 
 ## NOTICE!!! - December 13th (2020)
-**In response to the large number of apps on the play store that are cloning LTE Cleaner and running ads, I will be changing from the MIT license, to GPLv3.**
+**In response to the large number of apps on the play store that are cloning Fulldive Cleaner and running ads, I will be changing from the MIT license, to GPLv3.**
 
 **2020 has been crazy too. I have not in anyway worked on this app since the summer. But I'm back baby!**
 
@@ -22,9 +22,9 @@ them being extremely shady? Tired of them doing nothing? Tired of ads?
 Tired of having to pay? Me too.
 
 There are simply way too many apps out there that claim to speed up your device. In reality, they don't do anything.
-LTE Cleaner only aims to clean your phone by removing safe to delete files, which not only frees up a lot of space, but also improve your privacy. Since LTE Cleaner removes .log files, which well, log what you do.
+Fulldive Cleaner only aims to clean your phone by removing safe to delete files, which not only frees up a lot of space, but also improve your privacy. Since Fulldive Cleaner removes .log files, which well, log what you do.
 
-__LTE Cleaner is 100% free, open source, ad free, and deletes everything it claims to.__
+__Fulldive Cleaner is 100% free, open source, ad free, and deletes everything it claims to.__
 
 Cleans:
 - Empty folders

@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE Cleaner</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="app_name">Fulldive Cleaner</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Geen bestanden gevonden</string>
     <string name="delete_empty_folders">Lege mappen wissen</string>
     <string name="aggressive_filter">Agressief filter inschakelen</string>

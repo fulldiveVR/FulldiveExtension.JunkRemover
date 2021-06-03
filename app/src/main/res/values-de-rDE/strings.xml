@@ -4,7 +4,7 @@
   -->
 <resources>
     <string name="app_name">LTE-Reiniger</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Keine Dateien gefunden</string>
     <string name="delete_empty_folders">Leere Ordner löschen</string>
     <string name="aggressive_filter">Aggressiven Filter aktivieren</string>

@@ -7,15 +7,18 @@ package theredspy15.ltecleanerfoss;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -34,6 +37,11 @@ import com.fxn.stash.Stash;
 import java.io.File;
 import java.text.DecimalFormat;
 
+import theredspy15.ltecleanerfoss.extensionapps.ModuleState;
+import theredspy15.ltecleanerfoss.extensionapps.VpnExtensionAPI;
+
+import static theredspy15.ltecleanerfoss.extensionapps.CleanerExtensionAPIKt.getContentUri;
+
 public class MainActivity extends AppCompatActivity {
 
     ConstraintSet constraintSet = new ConstraintSet();
@@ -51,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("TestB", "onCreate " + getApplicationContext().getPackageName());
         setContentView(R.layout.activity_main);
         Stash.init(getApplicationContext());
 
@@ -70,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Starts the settings activity
+     *
      * @param view the view that is clickedprefs = getSharedPreferences("Settings",0);
      */
     public final void settings(View view) {
@@ -83,24 +93,24 @@ public class MainActivity extends AppCompatActivity {
     public final void clean(View view) {
         if (!running) {
             if (!prefs.getBoolean("one_click", false)) // one-click disabled
-                new AlertDialog.Builder(this,R.style.MyAlertDialogTheme)
+                new AlertDialog.Builder(this, R.style.MyAlertDialogTheme)
                         .setTitle(R.string.select_task)
                         .setMessage(R.string.do_you_want_to)
                         .setPositiveButton(R.string.clean, (dialog, whichButton) -> { // clean
-                            new Thread(()-> scan(true)).start();
+                            new Thread(() -> scan(true)).start();
                         })
                         .setNegativeButton(R.string.analyze, (dialog, whichButton) -> { // analyze
-                            new Thread(()-> scan(false)).start();
+                            new Thread(() -> scan(false)).start();
                         }).show();
-            else new Thread(()-> scan(true)).start(); // one-click enabled
+            else new Thread(() -> scan(true)).start(); // one-click enabled
         }
     }
 
     public void animateBtn() {
         TransitionManager.beginDelayedTransition(layout);
-        constraintSet.clear(R.id.cleanButton,ConstraintSet.TOP);
-        constraintSet.clear(R.id.statusTextView,ConstraintSet.BOTTOM);
-        constraintSet.setMargin(R.id.statusTextView,ConstraintSet.TOP,50);
+        constraintSet.clear(R.id.cleanButton, ConstraintSet.TOP);
+        constraintSet.clear(R.id.statusTextView, ConstraintSet.BOTTOM);
+        constraintSet.setMargin(R.id.statusTextView, ConstraintSet.TOP, 50);
         constraintSet.applyTo(layout);
     }
 
@@ -138,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         runOnUiThread(() -> {
             animateBtn();
+            resolveWorkState(ModuleState.RUNNING.INSTANCE.toString());
             statusText.setText(getString(R.string.status_running));
         });
 
@@ -146,12 +157,14 @@ public class MainActivity extends AppCompatActivity {
 
         // crappy but working fix for percentage never reaching 100
         runOnUiThread(() -> {
+            resolveWorkState(ModuleState.STARTING.INSTANCE.toString());
             scanPBar.setProgress(scanPBar.getMax());
             progressText.setText("100%");
         });
 
         // kilobytes found/freed text
         runOnUiThread(() -> {
+            resolveWorkState(ModuleState.STOPPED.INSTANCE.toString());
             if (delete) {
                 statusText.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
             } else {
@@ -164,9 +177,16 @@ public class MainActivity extends AppCompatActivity {
         Looper.loop();
     }
 
+    private void resolveWorkState(String state) {
+        ContentValues values = new ContentValues();
+        values.put(VpnExtensionAPI.WORK_STATUS, state);
+        Uri uri = getContentUri(VpnExtensionAPI.WORK_STATUS, VpnExtensionAPI.STRING_TYPE);
+        getApplicationContext().getContentResolver().insert(uri, values);
+    }
 
     /**
      * Convenience method to quickly create a textview
+     *
      * @param text - text of textview
      * @return - created textview
      */
@@ -174,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = new TextView(MainActivity.this);
         textView.setTextColor(color);
         textView.setText(text);
-        textView.setPadding(3,3,3,3);
+        textView.setPadding(3, 3, 3, 3);
         return textView;
     }
 
@@ -195,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Increments amount removed, then creates a text view to add to the scroll view.
      * If there is any error while deleting, turns text view of path red
+     *
      * @param file file to delete
      */
     synchronized TextView displayPath(File file) {

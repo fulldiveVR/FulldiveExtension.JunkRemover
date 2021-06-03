@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright 2020 Hunter J Drum
-  -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="theredspy15.ltecleanerfoss">
@@ -44,6 +40,10 @@
             android:parentActivityName="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" />
+        <provider
+            android:name=".extensionapps.VpnExtensionAPI"
+            android:authorities="com.fulldive.fulldivecleaner"
+            android:exported="true" />
     </application>
 
 </manifest>

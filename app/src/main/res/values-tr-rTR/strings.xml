@@ -4,7 +4,7 @@
   -->
 <resources>
     <string name="app_name">LTE Temizleyici</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Dosya bulunamadı</string>
     <string name="delete_empty_folders">Boş klasörleri sil</string>
     <string name="aggressive_filter">Agresif süzgeci etkinleştir</string>

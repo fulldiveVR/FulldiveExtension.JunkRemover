@@ -4,7 +4,7 @@
   -->
 <resources>
     <string name="app_name">LTE-rensning</string>
-    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Inga filer hittades</string>
     <string name="delete_empty_folders">Ta bort tomma mappar</string>
     <string name="aggressive_filter">Aktivera aggressivt filter</string>

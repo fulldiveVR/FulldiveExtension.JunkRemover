@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Weet u zeker dat u de goedgekeurde lijst wilt wissen?</string>
     <string name="reset">Leegmaken</string>
     <string name="delete_apk_files">.apk-bestanden wissen</string>
-    <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="lte_threading">Fulldive CleanerThreading (Faster)</string>
     <string name="default_whitelist">Standaard goedgekeurde lijst</string>
     <string name="add_defaults">Aanbevolen Whitelists toevoegen</string>
     <string name="nothing_found">Niets gevonden</string>

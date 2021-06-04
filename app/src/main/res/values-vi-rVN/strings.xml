@@ -3,7 +3,7 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Trình dọn dẹp LTE</string>
+    <string name="app_name">Fulldive Cleaner</string>
     <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Không tìm thấy tập tin</string>
     <string name="delete_empty_folders">Xoá các thư mục rỗng</string>
@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Anh có chắc là muốn dọn sạch trắng không?</string>
     <string name="reset">Xóa</string>
     <string name="delete_apk_files">Xoá tập tin .apk</string>
-    <string name="lte_threading">Trình đọc tin LTE (Faster)</string>
+    <string name="lte_threading">Trình đọc tin Fulldive Cleaner(Faster)</string>
     <string name="default_whitelist">Whitelist mặc định</string>
     <string name="add_defaults">Thêm khuyến cáo</string>
     <string name="nothing_found">Không tìm thấy</string>

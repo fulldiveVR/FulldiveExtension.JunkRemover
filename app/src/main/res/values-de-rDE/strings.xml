@@ -3,7 +3,7 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE-Reiniger</string>
+    <string name="app_name">Fulldive Cleaner</string>
     <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Keine Dateien gefunden</string>
     <string name="delete_empty_folders">Leere Ordner löschen</string>

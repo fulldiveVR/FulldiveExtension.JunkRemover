@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">LTE 清除器</string>
-    <string name="lte_cleaner">LTE 清除器 !</string>
+    <string name="app_name">Fulldive Cleaner</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">找不到文件</string>
     <string name="delete_empty_folders">删除空文件夹</string>
     <string name="aggressive_filter">启用攻击性过滤器</string>
@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">确定要清除白名单吗 ?</string>
     <string name="reset">清除</string>
     <string name="delete_apk_files">删除 .apk 文件</string>
-    <string name="lte_threading">LTE 线程技术 ( 更快)</string>
+    <string name="lte_threading">Fulldive Cleaner线程技术 ( 更快)</string>
     <string name="default_whitelist">缺省白名单</string>
     <string name="add_defaults">添加建议的白名单</string>
     <string name="nothing_found">找不到任何内容</string>

@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Czy na pewno wyczyścić białą listę?</string>
     <string name="reset">Wyczyść</string>
     <string name="delete_apk_files">Usuń pliki .apk</string>
-    <string name="lte_threading">Lektura LTE Threading (Faster)</string>
+    <string name="lte_threading">Lektura Fulldive CleanerThreading (Faster)</string>
     <string name="default_whitelist">Domyślna lista nazw dozwolonych</string>
     <string name="add_defaults">Dodaj rekomendowane listy nazw dozwolonych</string>
     <string name="nothing_found">Nic nie znaleziono</string>

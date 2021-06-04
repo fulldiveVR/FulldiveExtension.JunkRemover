@@ -1,13 +1,7 @@
-/*
- * Copyright 2020 Hunter J Drum
- */
-
 package theredspy15.ltecleanerfoss;
-
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -18,7 +12,6 @@ import android.os.Environment;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -37,10 +30,10 @@ import com.fxn.stash.Stash;
 import java.io.File;
 import java.text.DecimalFormat;
 
-import theredspy15.ltecleanerfoss.extensionapps.ModuleState;
-import theredspy15.ltecleanerfoss.extensionapps.VpnExtensionAPI;
+import theredspy15.ltecleanerfoss.extensionapps.AppExtensionState;
+import theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProvider;
 
-import static theredspy15.ltecleanerfoss.extensionapps.CleanerExtensionAPIKt.getContentUri;
+import static theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProviderKt.getContentUri;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("TestB", "onCreate " + getApplicationContext().getPackageName());
         setContentView(R.layout.activity_main);
         Stash.init(getApplicationContext());
 
@@ -75,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         constraintSet.clone(layout);
 
         requestWriteExternalPermission();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String workStatus = extras.getString(ExtensionContentProvider.WORK_STATUS);
+            if (workStatus != null) {
+                clean();
+            }
+        }
     }
 
     /**
@@ -91,6 +91,18 @@ public class MainActivity extends AppCompatActivity {
      * Runs search and delete on background thread
      */
     public final void clean(View view) {
+        clean();
+    }
+
+    public void animateBtn() {
+        TransitionManager.beginDelayedTransition(layout);
+        constraintSet.clear(R.id.cleanButton, ConstraintSet.TOP);
+        constraintSet.clear(R.id.statusTextView, ConstraintSet.BOTTOM);
+        constraintSet.setMargin(R.id.statusTextView, ConstraintSet.TOP, 50);
+        constraintSet.applyTo(layout);
+    }
+
+    private void clean() {
         if (!running) {
             if (!prefs.getBoolean("one_click", false)) // one-click disabled
                 new AlertDialog.Builder(this, R.style.MyAlertDialogTheme)
@@ -104,14 +116,6 @@ public class MainActivity extends AppCompatActivity {
                         }).show();
             else new Thread(() -> scan(true)).start(); // one-click enabled
         }
-    }
-
-    public void animateBtn() {
-        TransitionManager.beginDelayedTransition(layout);
-        constraintSet.clear(R.id.cleanButton, ConstraintSet.TOP);
-        constraintSet.clear(R.id.statusTextView, ConstraintSet.BOTTOM);
-        constraintSet.setMargin(R.id.statusTextView, ConstraintSet.TOP, 50);
-        constraintSet.applyTo(layout);
     }
 
     /**
@@ -148,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         runOnUiThread(() -> {
             animateBtn();
-            resolveWorkState(ModuleState.RUNNING.INSTANCE.toString());
+            resolveWorkState(AppExtensionState.START);
             statusText.setText(getString(R.string.status_running));
         });
 
@@ -157,14 +161,14 @@ public class MainActivity extends AppCompatActivity {
 
         // crappy but working fix for percentage never reaching 100
         runOnUiThread(() -> {
-            resolveWorkState(ModuleState.STARTING.INSTANCE.toString());
+            resolveWorkState(AppExtensionState.START);
             scanPBar.setProgress(scanPBar.getMax());
             progressText.setText("100%");
         });
 
         // kilobytes found/freed text
         runOnUiThread(() -> {
-            resolveWorkState(ModuleState.STOPPED.INSTANCE.toString());
+            resolveWorkState(AppExtensionState.STOP);
             if (delete) {
                 statusText.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
             } else {
@@ -177,11 +181,9 @@ public class MainActivity extends AppCompatActivity {
         Looper.loop();
     }
 
-    private void resolveWorkState(String state) {
-        ContentValues values = new ContentValues();
-        values.put(VpnExtensionAPI.WORK_STATUS, state);
-        Uri uri = getContentUri(VpnExtensionAPI.WORK_STATUS, VpnExtensionAPI.STRING_TYPE);
-        getApplicationContext().getContentResolver().insert(uri, values);
+    private void resolveWorkState(AppExtensionState state) {
+        Uri uri = getContentUri(state.toString());
+        getApplicationContext().getContentResolver().insert(uri, null);
     }
 
     /**

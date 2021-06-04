@@ -40,10 +40,10 @@
             android:parentActivityName="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" />
+
         <provider
-            android:name=".extensionapps.VpnExtensionAPI"
-            android:authorities="com.fulldive.fulldivecleaner"
+            android:name=".extensionapps.ExtensionContentProvider"
+            android:authorities="com.fulldive.cleaner"
             android:exported="true" />
     </application>
-
 </manifest>

@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Vyčištění LTE</string>
-    <string name="lte_cleaner">Uklízeč LTE!</string>
+    <string name="app_name">Fulldive Cleaner</string>
+    <string name="lte_cleaner">Fulldive Cleaner!</string>
     <string name="no_files_found">Nebyly nalezeny žádné soubory</string>
     <string name="delete_empty_folders">Odstranit prázdné složky</string>
     <string name="aggressive_filter">Povolit agresivní filtr</string>
@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Jste si jisti, že chcete vymazat seznam povolených adres?</string>
     <string name="reset">Vyčistit</string>
     <string name="delete_apk_files">Odstranit soubory .apk</string>
-    <string name="lte_threading">LTE Threading (rychlejší)</string>
+    <string name="lte_threading">Fulldive CleanerThreading (rychlejší)</string>
     <string name="default_whitelist">Výchozí seznam povolených adres</string>
     <string name="add_defaults">Přidat doporučené seznamy povolených adres</string>
     <string name="nothing_found">Nic nenalezeno</string>

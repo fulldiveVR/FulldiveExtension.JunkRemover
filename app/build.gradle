@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.fulldive.fulldivecleaner"
+        applicationId "com.fulldive.cleaner"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 38
-        versionName "4.2.1"
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

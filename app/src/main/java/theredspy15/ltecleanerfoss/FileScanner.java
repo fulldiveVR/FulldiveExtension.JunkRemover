@@ -9,6 +9,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.net.Uri;
 import android.widget.TextView;
 
 import com.fxn.stash.Stash;
@@ -22,6 +23,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 import static theredspy15.ltecleanerfoss.WhitelistActivity.getWhiteList;
+import static theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProviderKt.getWorkProgressUri;
 
 public class FileScanner {
 
@@ -41,12 +43,14 @@ public class FileScanner {
     FileScanner(File path) {
         this.path = path;
     }
+
     private List<File> getListFiles() {
         return getListFiles(path);
     }
 
     /**
      * Used to generate a list of all files on device
+     *
      * @param parentDirectory where to start searching from
      * @return List of all files on device (besides whitelisted ones)
      */
@@ -62,8 +66,7 @@ public class FileScanner {
                         if (autoWhite) {
                             if (!autoWhiteList(file))
                                 inFiles.add(file);
-                        }
-                        else inFiles.add(file); // add folder itself
+                        } else inFiles.add(file); // add folder itself
 
                         inFiles.addAll(getListFiles(file)); // add contents to returned list
 
@@ -78,6 +81,7 @@ public class FileScanner {
     /**
      * Runs a for each loop through the white list, and compares the path of the file
      * to each path in the list
+     *
      * @param file file to check if in the whitelist
      * @return true if is the file is in the white list, false if not
      */
@@ -92,6 +96,7 @@ public class FileScanner {
     /**
      * Runs before anything is filtered/cleaned. Automatically adds folders to the whitelist
      * based on the name of the folder itself
+     *
      * @param file file to check whether it should be added to the whitelist
      */
     private synchronized boolean autoWhiteList(File file) {
@@ -111,12 +116,13 @@ public class FileScanner {
     /**
      * Runs as for each loop through the filter, and checks if
      * the file matches any filters
+     *
      * @param file file to check
      * @return true if the file's extension is in the filter, false otherwise
      */
     public synchronized boolean filter(File file) {
         // corpse checking - TODO: needs improved!
-        if (file.getParentFile() != null && file.getParentFile().getParentFile() != null&& corpse)
+        if (file.getParentFile() != null && file.getParentFile().getParentFile() != null && corpse)
             if (file.getParentFile().getName().equals("data") && file.getParentFile().getParentFile().getName().equals("Android"))
                 if (!getInstalledPackages().contains(file.getName()) && !file.getName().equals(".nomedia"))
                     return true;
@@ -146,6 +152,7 @@ public class FileScanner {
     /**
      * lists the contents of the file to an array, if the array length is 0, then return true,
      * else false
+     *
      * @param directory directory to test
      * @return true if empty, false if containing a file(s)
      */
@@ -193,7 +200,8 @@ public class FileScanner {
         byte cycles = 0;
         byte maxCycles = 10;
         List<File> foundFiles;
-        if (!delete) maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
+        if (!delete)
+            maxCycles = 1; // when nothing is being deleted. Stops duplicates from being found
 
         // removes the need to 'clean' multiple times to get everything
         while (cycles < maxCycles) {
@@ -224,6 +232,9 @@ public class FileScanner {
                     // progress
                     gui.runOnUiThread(() -> gui.scanPBar.setProgress(gui.scanPBar.getProgress() + 1));
                     double scanPercent = gui.scanPBar.getProgress() * 100.0 / gui.scanPBar.getMax();
+                    int percent = (int) scanPercent;
+                    Uri uri = getWorkProgressUri(String.valueOf(percent));
+                    gui.getApplicationContext().getContentResolver().insert(uri, null);
                     gui.runOnUiThread(() -> gui.progressText.setText(String.format(Locale.US, "%.0f", scanPercent) + "%"));
                 }
             }
@@ -242,7 +253,7 @@ public class FileScanner {
     }
 
     private String getRegexForFile(String file) {
-        return ".+"+ file.replace(".", "\\.") + "$";
+        return ".+" + file.replace(".", "\\.") + "$";
     }
 
     void setGUI(MainActivity gui) {

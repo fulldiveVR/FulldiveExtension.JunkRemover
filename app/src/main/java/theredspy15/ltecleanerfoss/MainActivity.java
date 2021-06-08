@@ -32,6 +32,7 @@ import java.text.DecimalFormat;
 
 import theredspy15.ltecleanerfoss.extensionapps.AppExtensionState;
 import theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProvider;
+import theredspy15.ltecleanerfoss.extensionapps.WorkType;
 
 import static theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProviderKt.getContentUri;
 
@@ -71,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String workStatus = extras.getString(ExtensionContentProvider.WORK_STATUS);
+            String workType = extras.getString(ExtensionContentProvider.WORK_TYPE);
             if (workStatus != null) {
-                clean();
+                analyzeOrDelete(workType);
             }
         }
     }
@@ -115,6 +117,16 @@ public class MainActivity extends AppCompatActivity {
                             new Thread(() -> scan(false)).start();
                         }).show();
             else new Thread(() -> scan(true)).start(); // one-click enabled
+        }
+    }
+
+    private void analyzeOrDelete(String workType) {
+        if (!running) {
+            if (workType.equals(WorkType.CLEAN.toString())) {
+                new Thread(() -> scan(true)).start();
+            } else {
+                new Thread(() -> scan(false)).start();
+            }
         }
     }
 

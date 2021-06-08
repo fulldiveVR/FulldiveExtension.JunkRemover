@@ -38,13 +38,25 @@ class ExtensionContentProvider : ContentProvider() {
         private const val PREFERENCE_AUTHORITY = "com.fulldive.cleaner"
         const val BASE_URL = "content://$PREFERENCE_AUTHORITY"
         const val WORK_STATUS = "WORK_STATUS"
+        const val WORK_TYPE = "WORK_TYPE"
+        const val WORK_PROGRESS = "WORK_PROGRESS"
     }
 }
 
 fun getContentUri(value: String): Uri {
     return Uri
         .parse(ExtensionContentProvider.BASE_URL)
-        .buildUpon().appendPath(ExtensionContentProvider.WORK_STATUS)
+        .buildUpon()
+        .appendPath(ExtensionContentProvider.WORK_STATUS)
+        .appendPath(value)
+        .build()
+}
+
+fun getWorkProgressUri(value: String): Uri {
+    return Uri
+        .parse(ExtensionContentProvider.BASE_URL)
+        .buildUpon()
+        .appendPath(ExtensionContentProvider.WORK_PROGRESS)
         .appendPath(value)
         .build()
 }

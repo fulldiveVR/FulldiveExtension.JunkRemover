@@ -3,7 +3,7 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Fulldive Cleaner</string>
+    <string name="app_name">Cleaner</string>
     <string name="lte_cleaner">Mai curat!</string>
     <string name="no_files_found">Niciun fişier găsit</string>
     <string name="delete_empty_folders">Ştergere foldere goale</string>

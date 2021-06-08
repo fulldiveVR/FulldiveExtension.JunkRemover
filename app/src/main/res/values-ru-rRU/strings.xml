@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Fulldive Cleaner</string>
-    <string name="lte_cleaner">Fulldive Cleaner!</string>
+    <string name="app_name">Cleaner</string>
+    <string name="lte_cleaner">Cleaner!</string>
     <string name="no_files_found">Файлы не найдены</string>
     <string name="delete_empty_folders">Удалить пустые папки</string>
     <string name="aggressive_filter">Включить агрессивный фильтр</string>
@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Вы действительно хотите очистить белый список?</string>
     <string name="reset">Очистить</string>
     <string name="delete_apk_files">Удалить файлы .apk</string>
-    <string name="lte_threading">Fulldive CleanerThreading (Faster)</string>
+    <string name="lte_threading">CleanerThreading (Faster)</string>
     <string name="default_whitelist">Белый список по умолчанию</string>
     <string name="add_defaults">Добавить рекомендованных белых</string>
     <string name="nothing_found">Ничего не найдено</string>

@@ -55,7 +55,6 @@ public class SettingsActivity extends AppCompatActivity {
          * Creates a menu that allows the user to create an issue on github
          */
         final void reportIssue(Context context) {
-
             IssueReporterLauncher.forTarget("TheRedSpy15", "LTECleanerFOSS")
                     .theme(R.style.CustomIssueReportTheme)
                     .guestEmailRequired(false)

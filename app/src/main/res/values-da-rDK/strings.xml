@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Fulldive Cleaner</string>
-    <string name="lte_cleaner">Fulldive Cleaner!</string>
+    <string name="app_name">Cleaner</string>
+    <string name="lte_cleaner">Cleaner!</string>
     <string name="no_files_found">Ingen filer er fundet</string>
     <string name="delete_empty_folders">Slet tomme foldere</string>
     <string name="aggressive_filter">Aktivér aggressivt filter</string>
@@ -30,7 +30,7 @@
     <string name="are_you_reset_whitelist">Er du sikker på, at du vil rydde hvidlisten?</string>
     <string name="reset">Ryd</string>
     <string name="delete_apk_files">Slet .apk-filer</string>
-    <string name="lte_threading">Fulldive CleanerThreading (hurtigere)</string>
+    <string name="lte_threading">CleanerThreading (hurtigere)</string>
     <string name="default_whitelist">Standardhvidliste</string>
     <string name="add_defaults">Anbefalede Whitelister</string>
     <string name="nothing_found">Intet fundet</string>

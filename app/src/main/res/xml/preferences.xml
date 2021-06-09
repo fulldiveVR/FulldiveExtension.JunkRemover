@@ -1,102 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
-  ~ Copyright 2020 Hunter J Drum
-  -->
-
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:title="Settings"
     android:key="settings"
+    android:title="Settings"
     app:iconSpaceReserved="false">
 
-    <Preference android:title="@string/privacy_policy"
+    <Preference
         android:key="privacyPolicy"
-        app:iconSpaceReserved="false"
-        android:summary="@string/privacy_sum">
-        <intent android:action="android.intent.action.VIEW"
+        android:summary="@string/privacy_sum"
+        android:title="@string/privacy_policy"
+        app:iconSpaceReserved="false">
+        <intent
+            android:action="android.intent.action.VIEW"
             android:data="https://www.fulldive.com/privacy-policy" />
     </Preference>
 
-    <Preference android:title="@string/whitelist"
+    <Preference
         android:key="whitelist"
-        app:iconSpaceReserved="false"
-        android:summary="@string/whitelist_sum">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetPackage="theredspy15.ltecleanerfoss"
-            android:targetClass="theredspy15.ltecleanerfoss.WhitelistActivity" />
+        android:summary="@string/whitelist_sum"
+        android:title="@string/whitelist"
+        app:iconSpaceReserved="false">
+        <intent android:action="whitelist" />
     </Preference>
 
-    <Preference android:title="@string/make_suggestion"
-        android:key="suggestion"
-        app:iconSpaceReserved="false"
-        android:summary="@string/suggestion_sum">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetPackage="com.package.name"
-            android:targetClass="com.package.name.ActivityName" />
-    </Preference>
-
-    <PreferenceCategory android:title="Filters" app:iconSpaceReserved="false">
+    <PreferenceCategory
+        android:title="Filters"
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
-            app:iconSpaceReserved="false"
             android:defaultValue="true"
-            android:textColor="#FFF"
             android:key="generic"
             android:persistent="true"
             android:summary="@string/generic_sum"
-            android:title="@string/enable_generic_filter" />
-        <CheckBoxPreference
-            app:iconSpaceReserved="false"
-            android:defaultValue="false"
             android:textColor="#FFF"
+            android:title="@string/enable_generic_filter"
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="aggressive"
             android:persistent="true"
             android:summary="@string/aggressive_sum"
-            android:title="@string/aggressive_filter" />
-        <CheckBoxPreference
-            app:iconSpaceReserved="false"
-            android:defaultValue="false"
             android:textColor="#FFF"
+            android:title="@string/aggressive_filter"
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="empty"
             android:persistent="true"
-            android:title="@string/delete_empty_folders" />
-        <CheckBoxPreference
-            app:iconSpaceReserved="false"
-            android:defaultValue="false"
             android:textColor="#FFF"
+            android:title="@string/delete_empty_folders"
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="corpse"
             android:persistent="true"
             android:summary="@string/corpse_summary"
-            android:title="@string/corpse_title" />
-        <CheckBoxPreference
-            app:iconSpaceReserved="false"
-            android:defaultValue="true"
             android:textColor="#FFF"
+            android:title="@string/corpse_title"
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="apk"
             android:persistent="true"
             android:summary="@string/apk_sum"
-            android:title="@string/delete_apk_files" />
-        <CheckBoxPreference
-            app:iconSpaceReserved="false"
-            android:defaultValue="true"
             android:textColor="#FFF"
+            android:title="@string/delete_apk_files"
+            app:iconSpaceReserved="false" />
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="auto_white"
             android:persistent="true"
             android:summary="@string/autowhite_sum"
-            android:title="@string/auto_whitelist" />
+            android:textColor="#FFF"
+            android:title="@string/auto_whitelist"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Miscellaneous" app:iconSpaceReserved="false">
+    <PreferenceCategory
+        android:title="Miscellaneous"
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
-            app:iconSpaceReserved="false"
             android:defaultValue="false"
-            android:textColor="#FFF"
             android:key="one_click"
             android:persistent="true"
             android:summary="@string/oneclick_sum"
-            android:title="@string/one_click_clean" />
+            android:textColor="#FFF"
+            android:title="@string/one_click_clean"
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
-
 </PreferenceScreen>

@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void analyzeOrDelete(String workType) {
         if (!running) {
-            if (workType.equals(WorkType.CLEAN.toString())) {
+            if (WorkType.CLEAN.toString().equals(workType)) {
                 new Thread(() -> scan(true)).start();
             } else {
                 new Thread(() -> scan(false)).start();

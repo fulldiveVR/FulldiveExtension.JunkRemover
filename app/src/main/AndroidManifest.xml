@@ -22,25 +22,29 @@
             android:label="@string/title_activity_prompt"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="theredspy15.ltecleanerfoss.WhitelistActivity"
-            android:parentActivityName="theredspy15.ltecleanerfoss.SettingsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SettingsTheme" />
-        <activity
             android:name="theredspy15.ltecleanerfoss.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="theredspy15.ltecleanerfoss.SettingsActivity"
+            android:label="@string/app_name"
             android:parentActivityName="theredspy15.ltecleanerfoss.MainActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/SettingsTheme" />
-
+        <activity
+            android:name="theredspy15.ltecleanerfoss.WhitelistActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="theredspy15.ltecleanerfoss.SettingsActivity"
+            android:theme="@style/SettingsTheme">
+            <intent-filter>
+                <action android:name="whitelist" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <provider
             android:name=".extensionapps.ExtensionContentProvider"
             android:authorities="com.fulldive.cleaner"

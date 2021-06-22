@@ -5,5 +5,5 @@ enum class AppExtensionState {
 }
 
 enum class WorkType {
-    ANALYZE, CLEAN
+    ANALYZE, CLEAN, OPEN
 }

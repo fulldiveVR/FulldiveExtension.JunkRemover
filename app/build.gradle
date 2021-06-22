@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.fulldive.cleaner"
+        applicationId "com.fulldive.extension.cleaner"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1

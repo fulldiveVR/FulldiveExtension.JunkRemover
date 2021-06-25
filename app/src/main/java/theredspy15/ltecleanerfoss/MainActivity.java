@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void analyzeOrDelete(String workType) {
         if (!running) {
-            if (WorkType.CLEAN.toString().equals(workType)) {
+            if (WorkType.CLEAN.INSTANCE.getId().equals(workType)) {
                 new Thread(() -> scan(true)).start();
             } else {
                 new Thread(() -> scan(false)).start();
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
         runOnUiThread(() -> {
             animateBtn();
-            resolveWorkState(AppExtensionState.START);
+            resolveWorkState(AppExtensionState.START.INSTANCE.getId());
             statusText.setText(getString(R.string.status_running));
         });
 
@@ -180,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
 
         // crappy but working fix for percentage never reaching 100
         runOnUiThread(() -> {
-            resolveWorkState(AppExtensionState.START);
+            resolveWorkState(AppExtensionState.START.INSTANCE.getId());
             scanPBar.setProgress(scanPBar.getMax());
             progressText.setText("100%");
         });
 
         // kilobytes found/freed text
         runOnUiThread(() -> {
-            resolveWorkState(AppExtensionState.STOP);
+            resolveWorkState(AppExtensionState.STOP.INSTANCE.getId());
             if (delete) {
                 statusText.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
             } else {
@@ -200,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
         Looper.loop();
     }
 
-    private void resolveWorkState(AppExtensionState state) {
-        Uri uri = getContentUri(state.toString());
+    private void resolveWorkState(String state) {
+        Uri uri = getContentUri(state);
         getApplicationContext().getContentResolver().insert(uri, null);
     }
 

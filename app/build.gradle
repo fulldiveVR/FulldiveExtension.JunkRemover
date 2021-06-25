@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
+    signingConfigs {
+        release {
+            storeFile file('../keys/keys.jks')
+            storePassword System.getenv("FULLDIVE_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("FULLDIVE_ALIAS")
+            keyPassword System.getenv("FULLDIVE_ALIAS_PASSWORD")
+        }
+    }
     defaultConfig {
         applicationId "com.fulldive.extension.cleaner"
         minSdkVersion 19
@@ -17,6 +25,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

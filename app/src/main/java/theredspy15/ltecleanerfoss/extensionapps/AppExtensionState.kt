@@ -1,9 +1,13 @@
 package theredspy15.ltecleanerfoss.extensionapps
 
-enum class AppExtensionState {
-    START, STOP, FAILURE
+sealed class AppExtensionState(val id: String) {
+    object START: AppExtensionState("START")
+    object STOP: AppExtensionState("STOP")
+    object FAILURE: AppExtensionState("FAILURE")
 }
 
-enum class WorkType {
-    ANALYZE, CLEAN, OPEN
+sealed class WorkType(val id: String) {
+    object ANALYZE: WorkType("ANALYZE")
+    object CLEAN: WorkType("CLEAN")
+    object OPEN: WorkType("OPEN")
 }

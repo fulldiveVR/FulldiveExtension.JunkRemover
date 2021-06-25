@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Cleaner</string>
-    <string name="lte_cleaner">Cleaner!</string>
+    <string name="app_name">Full Cleaner</string>
+    <string name="lte_cleaner">Full Cleaner!</string>
     <string name="no_files_found">Файлы не найдены</string>
     <string name="delete_empty_folders">Удалить пустые папки</string>
     <string name="aggressive_filter">Включить агрессивный фильтр</string>

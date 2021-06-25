@@ -9,7 +9,7 @@
         android:maxSdkVersion="29"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <permission
-        android:name="com.fulldive.extension.cleaner.access.read"
+        android:name="${applicationId}.access.read"
         android:protectionLevel="signature" />
 
     <application
@@ -52,8 +52,8 @@
         </activity>
         <provider
             android:name=".extensionapps.ExtensionContentProvider"
-            android:authorities="com.fulldive.extension.cleaner"
+            android:authorities="${applicationId}.FulldiveContentProvider"
             android:exported="true"
-            android:readPermission="com.fulldive.extension.cleaner.access.read"/>
+            android:permission="${applicationId}.access.read"/>
     </application>
 </manifest>

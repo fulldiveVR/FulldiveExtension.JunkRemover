@@ -3,8 +3,8 @@
   ~ Copyright 2020 Hunter J Drum
   -->
 <resources>
-    <string name="app_name">Cleaner세척기</string>
-    <string name="lte_cleaner">Cleaner청소부!</string>
+    <string name="app_name">Full Cleaner세척기</string>
+    <string name="lte_cleaner">Full Cleanerhyhj청소부!</string>
     <string name="no_files_found">파일이 없음</string>
     <string name="delete_empty_folders">빈 폴더 삭제하기</string>
     <string name="aggressive_filter">공격적 필터 사용</string>

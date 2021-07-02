@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String workStatus = extras.getString(ExtensionContentProvider.WORK_STATUS);
-            String workType = extras.getString(ExtensionContentProvider.WORK_TYPE);
+            String workStatus = extras.getString(ExtensionContentProvider.KEY_WORK_STATUS);
+            String workType = extras.getString(ExtensionContentProvider.KEY_WORK_TYPE);
             if (workStatus != null) {
                 analyzeOrDelete(workType);
             }
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void analyzeOrDelete(String workType) {
         if (!running) {
-            if (WorkType.CLEAN.INSTANCE.getId().equals(workType)) {
+            if (WorkType.Clean.INSTANCE.getId().equals(workType)) {
                 new Thread(() -> scan(true)).start();
             } else {
                 new Thread(() -> scan(false)).start();
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
         runOnUiThread(() -> {
             animateBtn();
-            resolveWorkState(AppExtensionState.START.INSTANCE.getId());
+            resolveWorkState(AppExtensionState.Start.INSTANCE.getId());
             statusText.setText(getString(R.string.status_running));
         });
 
@@ -180,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
 
         // crappy but working fix for percentage never reaching 100
         runOnUiThread(() -> {
-            resolveWorkState(AppExtensionState.START.INSTANCE.getId());
+            resolveWorkState(AppExtensionState.Start.INSTANCE.getId());
             scanPBar.setProgress(scanPBar.getMax());
             progressText.setText("100%");
         });
 
         // kilobytes found/freed text
         runOnUiThread(() -> {
-            resolveWorkState(AppExtensionState.STOP.INSTANCE.getId());
+            resolveWorkState(AppExtensionState.Stop.INSTANCE.getId());
             if (delete) {
                 statusText.setText(getString(R.string.freed) + " " + convertSize(kilobytesTotal));
             } else {

@@ -1,36 +1,42 @@
 package theredspy15.ltecleanerfoss.extensionapps
 
+import android.Manifest
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import theredspy15.ltecleanerfoss.MainActivity
+import java.util.*
 
 class ExtensionContentProvider : ContentProvider() {
 
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
-        return when (method) {
-            WorkType.CLEAN.id, WorkType.ANALYZE.id -> {
+        return when (method.lowercase(Locale.ENGLISH)) {
+            WorkType.Clean.id, WorkType.Analyze.id -> {
                 launchScan(method)
                 null
             }
-            WorkType.OPEN.id -> {
+            WorkType.Open.id -> {
                 context?.let { context ->
                     val intent = Intent(context, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(intent)
                 }
                 null
             }
-            GET_STATUS -> {
-                bundleOf(
-                    Pair(
-                        WORK_STATUS,
-                        AppExtensionState.STOP.id
-                    )
-                )
+            WorkType.GetStatus.id -> {
+                bundleOf(KEY_WORK_STATUS to AppExtensionState.Stop.id)
+            }
+            WorkType.GetPermissionsRequired.id -> {
+                bundleOf(KEY_RESULT to context?.let { !isPermissionGranted(it) }?.or(false))
             }
             else -> {
                 super.call(method, arg, extras)
@@ -69,9 +75,21 @@ class ExtensionContentProvider : ContentProvider() {
     private fun launchScan(workType: String) {
         context?.let { context ->
             val intent = Intent(context, MainActivity::class.java)
-            intent.putExtra(WORK_STATUS, AppExtensionState.START.id)
-            intent.putExtra(WORK_TYPE, workType)
+            intent.putExtra(KEY_WORK_STATUS, AppExtensionState.Start.id)
+            intent.putExtra(KEY_WORK_TYPE, workType)
             context.startActivity(intent)
+        }
+    }
+
+    private fun isPermissionGranted(context: Context): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Environment.isExternalStorageManager()
+        } else {
+            val result = ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+            result == PackageManager.PERMISSION_GRANTED
         }
     }
 
@@ -79,10 +97,10 @@ class ExtensionContentProvider : ContentProvider() {
         private const val PREFERENCE_AUTHORITY =
             "com.fulldive.extension.cleaner.FulldiveContentProvider"
         const val BASE_URL = "content://$PREFERENCE_AUTHORITY"
-        const val WORK_STATUS = "work_status"
-        const val GET_STATUS = "GET_STATUS"
-        const val WORK_TYPE = "WORK_TYPE"
-        const val WORK_PROGRESS = "work_progress"
+        const val KEY_WORK_STATUS = "work_status"
+        const val KEY_WORK_TYPE = "work_type"
+        const val KEY_WORK_PROGRESS = "work_progress"
+        const val KEY_RESULT = "result"
     }
 }
 
@@ -90,7 +108,7 @@ fun getContentUri(value: String): Uri {
     return Uri
         .parse(ExtensionContentProvider.BASE_URL)
         .buildUpon()
-        .appendPath(ExtensionContentProvider.WORK_STATUS)
+        .appendPath(ExtensionContentProvider.KEY_WORK_STATUS)
         .appendPath(value)
         .build()
 }
@@ -99,7 +117,7 @@ fun getWorkProgressUri(value: String): Uri {
     return Uri
         .parse(ExtensionContentProvider.BASE_URL)
         .buildUpon()
-        .appendPath(ExtensionContentProvider.WORK_PROGRESS)
+        .appendPath(ExtensionContentProvider.KEY_WORK_PROGRESS)
         .appendPath(value)
         .build()
 }

@@ -76,13 +76,9 @@ public class MainActivity extends AppCompatActivity {
             requestWriteExternalPermission();
         }
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String workStatus = extras.getString(ExtensionContentProvider.KEY_WORK_STATUS);
-            String workType = extras.getString(ExtensionContentProvider.KEY_WORK_TYPE);
-            if (workStatus != null) {
-                analyzeOrDelete(workType);
-            }
+        String workStatus = getIntent().getAction();
+        if (workStatus != null) {
+            analyzeOrClean(workStatus);
         }
     }
 
@@ -127,11 +123,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void analyzeOrDelete(String workType) {
+    private void analyzeOrClean(String workType) {
         if (!running) {
             if (WorkType.Clean.INSTANCE.getId().equals(workType)) {
                 new Thread(() -> scan(true)).start();
-            } else {
+            } else if (WorkType.Analyze.INSTANCE.getId().equals(workType)) {
                 new Thread(() -> scan(false)).start();
             }
         }
@@ -286,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
                 intent.addCategory("android.intent.category.DEFAULT");
-                intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
+                intent.setData(Uri.parse(String.format("package:%s", getApplicationContext().getPackageName())));
                 startActivityForResult(intent, 2296);
             } catch (Exception e) {
                 Intent intent = new Intent();

@@ -18,6 +18,8 @@ import java.util.*
 
 class ExtensionContentProvider : ContentProvider() {
 
+    private var currentState = AppExtensionState.Stop.id
+
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
         return when (method.lowercase(Locale.ENGLISH)) {
             WorkType.Clean.id, WorkType.Analyze.id -> {
@@ -33,7 +35,7 @@ class ExtensionContentProvider : ContentProvider() {
                 null
             }
             WorkType.GetStatus.id -> {
-                bundleOf(KEY_WORK_STATUS to AppExtensionState.Stop.id)
+                bundleOf(KEY_WORK_STATUS to currentState)
             }
             WorkType.GetPermissionsRequired.id -> {
                 bundleOf(KEY_RESULT to context?.let { !isPermissionGranted(it) }?.or(false))
@@ -49,6 +51,10 @@ class ExtensionContentProvider : ContentProvider() {
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri {
+        val segments = uri.pathSegments
+        if (segments.size > 1 && segments[0] == KEY_WORK_STATUS) {
+            currentState = segments[1]
+        }
         context?.contentResolver?.notifyChange(uri, null)
         return uri
     }

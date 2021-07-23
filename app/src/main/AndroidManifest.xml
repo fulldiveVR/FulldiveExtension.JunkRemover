@@ -50,6 +50,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".extensionapps.StealthActivity"
+            android:theme="@style/stealthTheme"
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <provider
             android:name=".extensionapps.ExtensionContentProvider"
             android:authorities="com.fulldive.extension.cleaner.FulldiveContentProvider"

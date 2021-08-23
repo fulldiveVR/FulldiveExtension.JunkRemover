@@ -37,6 +37,7 @@ import java.text.DecimalFormat;
 
 import theredspy15.ltecleanerfoss.extensionapps.AppExtensionState;
 import theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProvider;
+import theredspy15.ltecleanerfoss.extensionapps.PopupManager;
 import theredspy15.ltecleanerfoss.extensionapps.WorkType;
 
 import static theredspy15.ltecleanerfoss.extensionapps.ExtensionContentProviderKt.getContentUri;
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         if (!isWriteExternalPermissionGranted()) {
             requestWriteExternalPermission();
         }
+
+        new PopupManager().onAppStarted(this);
 
         String workStatus = getIntent().getAction();
         if (workStatus != null) {

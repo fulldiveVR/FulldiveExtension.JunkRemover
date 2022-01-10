@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+#
+# Copyright 2020 Hunter J Drum
+#
+
 ##############################################################################
 ##
 ##  Gradle start up script for UN*X

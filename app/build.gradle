@@ -1,4 +1,8 @@
 
+/*
+ * Copyright 2020 Hunter J Drum
+ */
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 

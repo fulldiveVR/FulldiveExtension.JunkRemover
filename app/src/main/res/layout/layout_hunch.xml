@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~  Copyright (c) 2021 FullDive
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
+    <LinearLayout android:gravity="top|center_vertical" android:id="@+id/sagaLayout" android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="horizontal" app:layout_constraintBottom_toTopOf="@id/hysterectomyAdobeView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <AutoCompleteTextView android:background="@color/glycerine_programmable" android:hint="@string/klux_dolt_bemadden_illegible" android:id="@+id/pleasureView" android:layout_height="match_parent" android:layout_marginEnd="34dp" android:layout_marginStart="@dimen/bluebook_librarian_size" android:layout_width="wrap_content" android:text="@string/glare_proprioceptive_penman_bullhead" android:textColor="#F49ED2CB"/>
+        <CheckedTextView android:background="@color/bristly_excelsior" android:hint="@string/esther_whereby_midterm_annuity" android:id="@+id/broccoliView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingBottom="@dimen/house_solenoid_width" android:text="@string/rutgers_frolicked_toad_wander" android:textColor="@color/division_heliotrope"/>
+        <EditText android:background="@color/pavlov_effluent" android:hint="@string/deirdre_willow_diameter" android:id="@+id/helmutView" android:inputType="textVisiblePassword" android:layout_height="match_parent" android:layout_margin="@dimen/andrew_phobos" android:layout_width="wrap_content" android:text="@string/hydrosphere_snippet_gnat_astrophysicist"/>
+    </LinearLayout>
+    <AutoCompleteTextView android:background="@color/raceway_interstice_frederic" android:hint="@string/outermost_marble_extensor" android:id="@+id/hysterectomyAdobeView" android:layout_height="wrap_content" android:layout_width="0dp" android:text="@string/avertive_liberate_substantial_serviceable" app:layout_constraintBottom_toTopOf="@id/ameliorateView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/sagaLayout"/>
+    <EditText android:background="@color/shoot_vent" android:hint="@string/pulitzer_hangnail_whitehorse_hyacinth" android:id="@+id/ameliorateView" android:inputType="text" android:layout_height="wrap_content" android:layout_width="match_parent" android:padding="@dimen/chippendale_useful_margin" android:text="@string/trance_language_astrophysicist_victoria" android:textColor="@color/squatter_rarity" app:layout_constraintBottom_toTopOf="@id/cuttlefishLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/hysterectomyAdobeView"/>
+    <LinearLayout android:gravity="end" android:id="@+id/cuttlefishLayout" android:layout_height="wrap_content" android:layout_width="@dimen/brash_worship_height" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ameliorateView">
+        <EditText android:background="@color/eumenides_irrawaddy_millihenry" android:hint="@string/scoundrel_mattress_muslin" android:id="@+id/hydrochlorideThubanView" android:inputType="textPassword" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/ingratiate_weco_remington" android:textColor="@color/hubbard_bakelite_oxide"/>
+        <CheckBox android:background="@color/clear_miasmal" android:hint="@string/hadamard_ultrafast_cowardice" android:id="@+id/thermofaxDaviesView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/fontainebleau_cereus_constitution_terrain" android:textColor="@color/cattail_adirondack"/>
+        <LinearLayout android:gravity="center" android:id="@+id/densitometerLayout" android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="horizontal" android:padding="@dimen/tagging_heavenward_height">
+            <EditText android:background="@color/coworker_polloi_strumming" android:hint="@string/rudyard_shun_whitcomb_mccallum" android:id="@+id/emboldenDeliciousView" android:inputType="text" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/auger_waive_nurturant_downstream" android:textColor="#20F7E5"/>
+        </LinearLayout>
+        <Button android:hint="@string/autocracy_hitchcock_equipping_betray" android:id="@+id/erosThermomigrateView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/eagan_glycerin_water_windfall" android:textColor="#95BE5667" android:textSize="@dimen/polaris_breakage_textsize"/>
+        <CheckedTextView android:background="#12CA39" android:hint="@string/prosody_teresa_female" android:id="@+id/catcallPanaceaView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/catholicism_peach_gotham_glibly" android:textColor="@color/marianne_hardtack_krebs"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~  Copyright (c) 2021 FullDive
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
+    <CheckedTextView android:hint="@string/supple_isfahan_pigskin_childish" android:id="@+id/remanHondurasView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/trance_language_astrophysicist_victoria" app:layout_constraintBottom_toTopOf="@id/subsumedLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout android:gravity="end" android:id="@+id/subsumedLayout" android:layout_height="wrap_content" android:layout_width="@dimen/running_adams_width" android:orientation="vertical" app:layout_constraintBottom_toTopOf="@id/infantrymenView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/remanHondurasView">
+        <AutoCompleteTextView android:background="@color/mineral_malformation" android:hint="@string/phoneme_pushpin_spidery" android:id="@+id/bitchView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/mull_transitory_dagger_midnight" android:textColor="#2FBE62E6"/>
+        <CheckBox android:background="@color/sloe_vetting_feedback" android:hint="@string/skid_transcendent_cigarette" android:id="@+id/pyramidView" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/unison_eigenspace_size" android:layout_marginEnd="42dp" android:layout_marginStart="@dimen/dispensary_amethyst_height" android:layout_marginTop="16dp" android:layout_width="wrap_content" android:text="@string/steeplechase_tidal_pumpkinseed_territorial" android:textColor="@color/buzzsaw_stromberg_jamboree"/>
+        <AutoCompleteTextView android:background="@color/blockade_arequipa" android:hint="@string/necrotic_invisible_behind_britannic" android:id="@+id/bonanzaView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingBottom="@dimen/adjutant_upton" android:paddingEnd="@dimen/brakemen_burlesque_width" android:paddingStart="@dimen/perform_foss_width" android:text="@string/arcsine_orthopedic_intention" android:textColor="@color/horny_dendritic"/>
+        <CheckedTextView android:hint="@string/dramaturgy_pandora_description" android:id="@+id/creakyView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/procrustes_potatoes_corduroy" android:textColor="@color/contractor_pugh_mafioso" android:textSize="12sp"/>
+        <CheckedTextView android:background="@color/tripartite_macarthur" android:hint="@string/orographic_preemptive_oratory" android:id="@+id/delicacyView" android:layout_height="wrap_content" android:layout_margin="@dimen/dispensary_amethyst_height" android:layout_width="wrap_content" android:padding="@dimen/inedible_socioeconomic_margin" android:text="@string/running_concerto_maximilian" android:textColor="@color/bumpy_bulldog_recur"/>
+        <EditText android:background="#AB3A8FA4" android:hint="@string/diogenes_replenish_refection" android:id="@+id/aztecHillmanView" android:inputType="textPassword" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/crusty_elmsford_jugging" android:textColor="@color/promiscuity_ware" android:textSize="@dimen/delphinus_trouble_textsize"/>
+        <TextView android:hint="@string/grant_classification_halftone_dress" android:id="@+id/schmittInertanceView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/pollcadot_spatula_formica" android:textColor="@color/hereditary_protrusion"/>
+        <TextView android:background="#46A5A3" android:hint="@string/mawkish_risen_plumbago" android:id="@+id/borisGhentView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/central_mushy_levi" android:textColor="@color/perceive_molasses"/>
+    </LinearLayout>
+    <EditText android:background="#F453A0DE" android:hint="@string/jabbing_hubbub_everywhere_balm" android:id="@+id/infantrymenView" android:inputType="phone" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/rebellious_infra_england_jones" android:textColor="@color/habitat_discovery" app:layout_constraintBottom_toTopOf="@id/tomographView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/subsumedLayout"/>
+    <CheckedTextView android:hint="@string/peril_garter_sign_thirteen" android:id="@+id/tomographView" android:layout_height="wrap_content" android:layout_width="@dimen/schizophrenic_ieee_padding" android:text="@string/screen_tartary_divide" android:textColor="@color/tipsy_lawbreak_napoleon" android:textSize="@dimen/treadmill_mawr_textsize" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/infantrymenView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

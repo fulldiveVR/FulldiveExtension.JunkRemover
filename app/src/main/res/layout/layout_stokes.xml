@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~  Copyright (c) 2021 FullDive
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU General Public License
+  ~  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
+    <EditText android:background="@color/sportsman_stoichiometry_unanimous" android:hint="@string/prosody_teresa_female" android:id="@+id/hydrochlorideThubanView" android:inputType="textPersonName" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/athwart_loci_margin" android:layout_marginStart="@dimen/chippendale_useful_margin" android:layout_marginTop="@dimen/accord_fuse_size" android:layout_width="0dp" android:paddingTop="@dimen/canadian_tragic_width" android:text="@string/hermeneutic_boeing_puncture" android:textColor="@color/horny_dendritic" app:layout_constraintBottom_toTopOf="@id/thermofaxDaviesView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <AutoCompleteTextView android:background="@color/pinehurst_larsen_dreamt" android:hint="@string/mcleod_silkworm_indifferent" android:id="@+id/thermofaxDaviesView" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/inapt_sixteen" android:layout_width="@dimen/debrief_denizen_padding" android:text="@string/pittsburgh_heathen_cinch_keys" android:textColor="@color/banbury_deliverymen" android:textSize="26sp" app:layout_constraintBottom_toTopOf="@id/retainRendezvousLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/hydrochlorideThubanView"/>
+    <LinearLayout android:gravity="center_horizontal|start" android:id="@+id/retainRendezvousLayout" android:layout_height="wrap_content" android:layout_width="@dimen/brisbane_rookie" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/thermofaxDaviesView">
+        <EditText android:background="#2F18C0" android:hint="@string/running_concerto_maximilian" android:id="@+id/chanceClujView" android:inputType="textCapWords" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/malone_slipshod_collision_declaratory" android:textColor="#225AAB5C"/>
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/brayConceptLayout" android:layout_height="wrap_content" android:layout_width="wrap_content">
+            <Button android:hint="@string/lever_turvy_teratology" android:id="@+id/souffleView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/simpson_reub_blackboard" android:textColor="@color/theyll_hetman_with" app:layout_constraintBottom_toTopOf="@id/semanticBayesianView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            <AutoCompleteTextView android:background="#D8A49D4D" android:hint="@string/foam_gherkin_constantine_snippy" android:id="@+id/semanticBayesianView" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/winning_poke_padding" android:layout_marginStart="22dp" android:layout_marginTop="@dimen/surreptitious_anterior" android:layout_width="@dimen/neodymium_homeric_padding" android:text="@string/gutting_fieldwork_tori_tibet" android:textColor="@color/eumenides_irrawaddy_millihenry" app:layout_constraintBottom_toTopOf="@id/countryView" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/souffleView"/>
+            <CheckBox android:background="@color/etruscan_glycerol_submittal" android:hint="@string/grant_classification_halftone_dress" android:id="@+id/countryView" android:layout_height="wrap_content" android:layout_width="@dimen/fanout_were_padding" android:text="@string/lockstep_menlo_suppression_methylene" android:textColor="@color/stuff_laminar" android:textSize="30sp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/semanticBayesianView"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button android:background="#7DDA1B" android:hint="@string/perceive_depressing_compendium" android:id="@+id/ontarioView" android:layout_height="wrap_content" android:layout_margin="@dimen/dementia_fuzzy_padding" android:layout_width="wrap_content" android:text="@string/opera_divorce_bestseller" android:textColor="@color/flabbergast_apple_pawpaw"/>
+        <TextView android:hint="@string/osullivan_inflow_timetable" android:id="@+id/atlantaView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/withal_lackadaisic_gymnasium" android:textColor="@color/precocity_perish" android:textSize="@dimen/lodge_decibel_textsize"/>
+        <Button android:background="@color/pudding_sociometric_office" android:hint="@string/decommission_piccolo_personal_postprocess" android:id="@+id/mysoreView" android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/elmsford_ministerial_whittier" android:textColor="@color/lecture_across_easternmost" android:textSize="@dimen/tasteful_brewery_textsize"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
